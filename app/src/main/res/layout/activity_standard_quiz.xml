@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/main"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	tools:context=".StandardQuiz">
+
+	<com.google.android.material.appbar.MaterialToolbar
+		android:id="@+id/toolbar"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0"
+		app:navigationIcon="?attr/homeAsUpIndicator"
+		app:title="@string/standard_quizzes" />
+
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/start"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/start_button"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.498"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.626" />
+
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/topic_prompt"
+		style="@style/profile_text_style"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/topic_prompt"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.115" />
+
+	<Spinner
+		android:id="@+id/topic_dropdown"
+		style="@style/Widget.AppCompat.Spinner.DropDown"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:entries="@array/topics"
+		android:minHeight="48dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.145" />
+
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/question_type_prompt"
+		style="@style/profile_text_style"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/question_type_prompt"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.231" />
+
+	<Spinner
+		android:id="@+id/question_type_dropdown"
+		style="@style/Widget.AppCompat.Spinner.DropDown"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:entries="@array/question_types"
+		android:minHeight="48dp"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.269" />
+
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/question_amount_prompt"
+		style="@style/profile_text_style"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="@string/question_amount_prompt"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.351" />
+
+	<com.google.android.material.slider.Slider
+		android:id="@+id/question_amount"
+		style="@style/slider_style"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:contentDescription="@string/slider_desc"
+		android:stepSize="1"
+		android:valueFrom="1"
+		android:valueTo="20"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.393" />
+
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/questions_field"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintHorizontal_bias="0.0"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent"
+		app:layout_constraintVertical_bias="0.691" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

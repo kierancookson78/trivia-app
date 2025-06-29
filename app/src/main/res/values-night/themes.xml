@@ -1,0 +1,99 @@
+<resources>
+
+	<style name="Base.Theme.TriviaApp" parent="Theme.Material3.DayNight.NoActionBar">
+
+		<item name="colorPrimary">@color/light_primary_color</item>
+		<item name="colorPrimaryVariant">@color/dark_primary_color</item>
+		<item name="colorOnPrimary">@color/primary_text</item>
+
+		<item name="colorSecondary">@color/accent_color</item>
+		<item name="colorSecondaryVariant">@color/accent_color</item>
+		<item name="colorOnSecondary">@color/text_and_icons</item>
+
+		<item name="materialButtonStyle">@style/button_style</item>
+		<item name="toolbarStyle">@style/toolbar_style</item>
+		<item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+		<item name="actionOverflowButtonStyle">@style/menu_overflow</item>
+	</style>
+
+	<style name="toolbar_style" parent="Widget.Material3.Toolbar">
+		<item name="android:background">@color/light_primary_color</item>
+		<item name="titleTextColor">@color/primary_text</item>
+		<item name="title">@string/app_name</item>
+		<item name="navigationIconTint">@color/primary_text</item>
+	</style>
+
+	<style name="button_style" parent="Widget.Material3.Button">
+		<item name="backgroundTint">@color/accent_color</item>
+	</style>
+
+	<style name="menu_overflow" parent="Widget.AppCompat.ActionButton.Overflow">
+		<item name="android:tint">@color/primary_text</item>
+	</style>
+
+	<style name="toolbar_homepage" parent="toolbar_style">
+		<item name="menu">@menu/my_nav_item_night</item>
+	</style>
+
+	<style name="leaderboard_row_style" parent="Widget.MaterialComponents.TextView">
+		<item name="android:textColor">@color/text_and_icons</item>
+		<item name="android:layout_width">0dp</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_weight">1</item>
+		<item name="android:autoSizeTextType">uniform</item>
+		<item name="android:autoSizeMinTextSize">12sp</item>
+		<item name="android:autoSizeMaxTextSize">24sp</item>
+		<item name="android:autoSizeStepGranularity">2sp</item>
+		<item name="android:layout_marginStart">0dp</item>
+		<item name="android:textAlignment">center</item>
+	</style>
+
+	<style name="leaderboard_relative_layout_style">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">70dp</item>
+		<item name="android:padding">10dip</item>
+	</style>
+
+	<style name="quiz_buttons" parent="Widget.Material3.Button">
+		<item name="backgroundTint">@color/leaderboard_row_night</item>
+		<item name="android:textColor">@color/text_and_icons</item>
+		<item name="cornerRadius">0dp</item>
+		<item name="rippleColor">@color/light_primary_less_intense</item>
+		<item name="android:layout_height">173dp</item>
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_margin">0dp</item>
+		<item name="elevation">6dp</item>
+		<item name="android:shadowColor">@color/light_primary_color</item>
+		<item name="android:autoSizeTextType">uniform</item>
+		<item name="android:autoSizeMinTextSize">12sp</item>
+		<item name="android:autoSizeMaxTextSize">24sp</item>
+		<item name="android:autoSizeStepGranularity">2sp</item>
+	</style>
+
+	<style name="time_selector_theme" parent="Theme.AppCompat.Light.Dialog">
+		<item name="android:colorBackground">@color/leaderboard_row_night</item>
+		<item name="android:textColorPrimary">@color/text_and_icons</item>
+		<item name="colorAccent">@color/text_and_icons</item>
+		<item name="android:textColor">@color/text_and_icons</item>
+	</style>
+
+	<style name="profile_text_style">
+		<item name="android:textColor">@color/text_and_icons</item>
+		<item name="android:autoSizeTextType">uniform</item>
+		<item name="android:autoSizeMinTextSize">12sp</item>
+		<item name="android:autoSizeMaxTextSize">24sp</item>
+		<item name="android:autoSizeStepGranularity">2sp</item>
+	</style>
+
+	<style name="slider_style" parent="Widget.Material3.Slider">
+		<item name="thumbColor">@color/light_primary_color</item>
+		<item name="trackColorActive">@color/accent_color</item>
+		<item name="trackColorInactive">@color/accent_color</item>
+		<item name="tickColor">@color/primary_text</item>
+	</style>
+
+	<style name="profile_pic_style">
+		<item name="shapeCornerFamily">rounded</item>
+		<item name="cornerSize">50%</item>
+	</style>
+</resources>

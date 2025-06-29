@@ -1,0 +1,92 @@
+<resources>
+	<string name="app_name">Trivia App</string>
+	<string name="email_prompt">Email</string>
+	<string name="password_prompt">Password</string>
+	<string name="login_button">Login</string>
+	<string name="signup_button">Sign Up</string>
+	<string name="logout">Logout</string>
+	<string name="settings">Settings</string>
+	<string name="daily_quiz_settings">Daily Quiz Settings</string>
+	<string name="logout_message">You have been logged out</string>
+	<string name="true_text">True</string>
+	<string name="false_text">False</string>
+	<string name="welcome_msg">Welcome UserOne!</string>
+	<string name="set_time">Set Time</string>
+	<string name="enter_time">Enter time</string>
+	<string name="fresh_start_string">Fresh Start</string>
+	<string name="profile_pic_header">Profile Pic</string>
+	<string name="successful_signup">You have signed up successfully</string>
+	<string name="not_logged_in">Please login</string>
+	<string name="logged_in">You are logged in</string>
+	<string name="unsuccessful_signup">An account already exists with this email</string>
+	<string name="unsuccessful_login">You entered the wrong email or password</string>
+	<string name="username_prompt">Username</string>
+	<string name="out_of_time_string">You ran out of time!</string>
+	<string name="quiz_ready">Daily Quiz Ready</string>
+	<string-array name="tab_headers">
+		<item>Quiz Modes</item>
+		<item>Ranked Leaderboard</item>
+		<item>Stats</item>
+		<item>Profile</item>
+	</string-array>
+
+	<string name="time_attack">Time Attack</string>
+	<string name="daily_quiz">Daily Quiz</string>
+	<string name="standard_quizzes">Standard Quizzes</string>
+	<string name="ranked_quizzes">Ranked</string>
+	<string name="tabs_desc">Quiz Button</string>
+
+	<string name="username_header">User</string>
+	<string name="points_header">Points</string>
+	<string name="rank_header">Rank</string>
+	<string name="edit_profile">Edit Profile</string>
+	<string name="start_button">Start</string>
+	<string name="topic_prompt">Select Topic</string>
+
+	<string-array name="topics">
+		<item>Sport</item>
+		<item>Science and Nature</item>
+		<item>History</item>
+		<item>Geography</item>
+		<item>Politics</item>
+		<item>Films</item>
+		<item>General Knowledge</item>
+	</string-array>
+
+	<string name="question_type_prompt">Select Question Type</string>
+
+	<string-array name="question_types">
+		<item>Multiple Choice</item>
+		<item>True/False</item>
+		<item>Any</item>
+	</string-array>
+
+	<string name="slider_desc">Slide to select the amount of questions you want to answer</string>
+	<string name="question_amount_prompt">Select Amount of Questions</string>
+	<string name="quiz_topic_header">Topic</string>
+	<string name="submit_button">Submit</string>
+	<string name="finish">Finish</string>
+	<string name="time_format">%1$02d:%2$02d</string>
+	<string name="upload_photo">Upload Photo</string>
+	<string name="save_changes">Save Changes</string>
+	<string name="delete_profile">Delete Profile</string>
+	<string name="delete_profile_message">Are you sure you want to delete your profile?</string>
+	<string name="ranked_desc">Compete against other users in a ranked quiz to rank up and climb the leaderboards.
+    The quiz consists of 10 random questions.</string>
+	<string name="see_past_responses_button">Past Responses</string>
+	<string name="score_display">You scored %1$d out of %2$d</string>
+	<string name="level_stayed_display">You are still level %1$d!</string>
+	<string name="ranked_up">You have reached the %1$s rank!</string>
+	<string name="leveled_up">You are now level %1$d!</string>
+	<string name="time_remaining">Time Remaining: %1$02d:%2$02d</string>
+	<string name="time_until_quiz">Time Until Daily Quiz: %1$02d:%2$02d:%3$02d</string>
+	<string name="best_topic">Best Topic: %1$s</string>
+	<string name="longest_correct_streak">Longest Correct Streak: %1$d</string>
+	<string name="correct_answer_percent">Overall Correctness: %1$d%%</string>
+	<string name="daily_streak">Daily Streak: %1$d</string>
+	<string name="back">Back</string>
+	<string name="next_button">Next</string>
+	<string name="prev_button">Previous</string>
+	<string name="date_answered">Date Answered: %1$s</string>
+	<string name="correct_answer">Correct Answer: %1$s</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:weightSum="4">
+
+	<com.google.android.material.textview.MaterialTextView
+		android:id="@+id/time_text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="5dp"
+		android:layout_weight="1"
+		android:orientation="horizontal">
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/daily_quiz_button"
+			style="@style/quiz_buttons"
+			android:text="@string/daily_quiz"
+			tools:ignore="VisualLintButtonSize" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="5dp"
+		android:layout_weight="1"
+		android:orientation="horizontal">
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/normal_quiz_button"
+			style="@style/quiz_buttons"
+			android:text="@string/standard_quizzes"
+			tools:ignore="VisualLintButtonSize" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="5dp"
+		android:layout_weight="1"
+		android:orientation="horizontal">
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/ranked_quiz_button"
+			style="@style/quiz_buttons"
+			android:text="@string/ranked_quizzes"
+			tools:ignore="VisualLintButtonSize" />
+
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_margin="5dp"
+		android:layout_weight="1"
+		android:orientation="horizontal">
+
+		<com.google.android.material.button.MaterialButton
+			android:id="@+id/timed_quiz_button"
+			style="@style/quiz_buttons"
+			android:text="@string/time_attack"
+			tools:ignore="VisualLintButtonSize" />
+
+	</LinearLayout>
+
+</LinearLayout>
