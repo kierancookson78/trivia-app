@@ -27,10 +27,10 @@ import kotlin.properties.Delegates
  * https://firebase.google.com/docs/firestore
  */
 class DailyQuizzes : AppCompatActivity() {
-	private lateinit var currentTopic: String
-	private var topicNumber by Delegates.notNull<Int>()
+	private var currentTopic: String = "Sports"
+	private var topicNumber: Int = 21
 	private var questionAmount by Delegates.notNull<Int>()
-	private lateinit var typeString: String
+	private var typeString: String = "Any"
 	private lateinit var questionSelection: String
 	private lateinit var quizQuestions: String
 	private var auth = FirebaseAuth.getInstance()

@@ -7,7 +7,7 @@ plugins {
 
 android {
 	namespace = "com.example.triviaappv2"
-	compileSdk = 35
+	compileSdk = 36
 
 	defaultConfig {
 		applicationId = "com.example.triviaappv2"
