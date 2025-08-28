@@ -76,60 +76,71 @@ class MainActivity : AppCompatActivity() {
      * @param view is the to display a snack bar on the status of the signup process.
      */
     private fun signup(view: View) {
-        auth.createUserWithEmailAndPassword(
-            emailField.text.toString(),
-            passwordField.text.toString()
-        ).addOnCompleteListener(this) { signedup ->
-            if (signedup.isSuccessful) {
-                // If the signup was successful, create a new user in firebase firestore.
-                hideKeyboard()
-                val msgDisplay = Snackbar.make(
-                    view,
-                    getString(R.string.successful_signup),
-                    Snackbar.LENGTH_SHORT
-                )
-                msgDisplay.show()
-                val userId = auth.currentUser?.uid
-                val user = User(
-                    "",
-                    usernameField.text.toString(),
-                    0,
-                    "Bronze",
-                    1,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    0,
-                    1,
-                    1
-                )
-                database.collection("users")
-                    .document(userId!!)
-                    .set(user, SetOptions.merge())
-                    .addOnCompleteListener {
-                        createTopicStatsDocuments()
-                    }
-                auth.signOut()
-                update()
-                usernameField.text.clear()
-                emailField.text.clear()
-                passwordField.text.clear()
-                usernameField.requestFocus()
-            } else {
-                // If the signup was not successful, display an error message.
-                hideKeyboard()
-                val msgDisplay = Snackbar.make(
-                    view,
-                    getString(R.string.unsuccessful_signup),
-                    Snackbar.LENGTH_SHORT
-                )
-                msgDisplay.show()
+        if (emailField.text.toString().isNotBlank() && passwordField.text.toString()
+                .isNotBlank() && usernameField.text.toString().isNotBlank()
+        ) {
+            auth.createUserWithEmailAndPassword(
+                emailField.text.toString(),
+                passwordField.text.toString()
+            ).addOnCompleteListener(this) { signedup ->
+                if (signedup.isSuccessful) {
+                    // If the signup was successful, create a new user in firebase firestore.
+                    hideKeyboard()
+                    val msgDisplay = Snackbar.make(
+                        view,
+                        getString(R.string.successful_signup),
+                        Snackbar.LENGTH_SHORT
+                    )
+                    msgDisplay.show()
+                    val userId = auth.currentUser?.uid
+                    val user = User(
+                        "",
+                        usernameField.text.toString(),
+                        0,
+                        "Bronze",
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        1
+                    )
+                    database.collection("users")
+                        .document(userId!!)
+                        .set(user, SetOptions.merge())
+                        .addOnCompleteListener {
+                            createTopicStatsDocuments()
+                        }
+                    auth.signOut()
+                    update()
+                    usernameField.text.clear()
+                    emailField.text.clear()
+                    passwordField.text.clear()
+                    usernameField.requestFocus()
+                } else {
+                    // If the signup was not successful, display an error message.
+                    hideKeyboard()
+                    val msgDisplay = Snackbar.make(
+                        view,
+                        getString(R.string.unsuccessful_signup),
+                        Snackbar.LENGTH_SHORT
+                    )
+                    msgDisplay.show()
+                }
             }
+        } else {
+            val msgDisplay = Snackbar.make(
+                loginBtn,
+                "Email, Username and/or Password not entered.",
+                Snackbar.LENGTH_SHORT
+            )
+            msgDisplay.show()
         }
     }
 
@@ -140,68 +151,78 @@ class MainActivity : AppCompatActivity() {
      * https://firebase.google.com/docs/auth,
      */
     private fun login() {
-        auth.signInWithEmailAndPassword(
-            emailField.text.toString(),
-            passwordField.text.toString()
-        ).addOnCompleteListener(this) { login ->
-            if (login.isSuccessful) {
-                // If the login was successful, log the user in if they have not requested a delete.
-                hideKeyboard()
-                update()
-                if (requestedDelete) {
-                    // User has requested to delete their account.
-                    if (requestedDeleteEmail == loggedInUser?.email) {
-                        // The account requested to be deleted is the currently logged in user.
-                        deleteUserFromDatabase()
-                        deleteProfile { deleted ->
-                            if (deleted) {
-                                // The account has been deleted. Clear fields and display message.
-                                usernameField.text.clear()
-                                emailField.text.clear()
-                                passwordField.text.clear()
-                                usernameField.requestFocus()
-                                requestedDelete = false
-                                val snack =
-                                    Snackbar.make(
-                                        loginBtn, "Account deleted",
-                                        Snackbar.LENGTH_LONG
-                                    )
-                                snack.show()
+        if (emailField.text.toString().isNotBlank() && passwordField.text.toString().isNotBlank()) {
+            auth.signInWithEmailAndPassword(
+                emailField.text.toString(),
+                passwordField.text.toString()
+            ).addOnCompleteListener(this) { login ->
+                if (login.isSuccessful) {
+                    // If the login was successful, log the user in if they have not requested a delete.
+                    hideKeyboard()
+                    update()
+                    if (requestedDelete) {
+                        // User has requested to delete their account.
+                        if (requestedDeleteEmail == loggedInUser?.email) {
+                            // The account requested to be deleted is the currently logged in user.
+                            deleteUserFromDatabase()
+                            deleteProfile { deleted ->
+                                if (deleted) {
+                                    // The account has been deleted. Clear fields and display message.
+                                    usernameField.text.clear()
+                                    emailField.text.clear()
+                                    passwordField.text.clear()
+                                    usernameField.requestFocus()
+                                    requestedDelete = false
+                                    val snack =
+                                        Snackbar.make(
+                                            loginBtn, "Account deleted",
+                                            Snackbar.LENGTH_LONG
+                                        )
+                                    snack.show()
+                                }
                             }
+                        } else {
+                            // The account requested to be deleted is not the currently logged in user.
+                            val snack =
+                                Snackbar.make(
+                                    loginBtn,
+                                    "Incorrect details for delete",
+                                    Snackbar.LENGTH_LONG
+                                )
+                            snack.show()
+                            usernameField.text.clear()
+                            emailField.text.clear()
+                            passwordField.text.clear()
+                            usernameField.requestFocus()
+                            auth.signOut()
                         }
                     } else {
-                        // The account requested to be deleted is not the currently logged in user.
-                        val snack =
-                            Snackbar.make(
-                                loginBtn,
-                                "Incorrect details for delete",
-                                Snackbar.LENGTH_LONG
-                            )
-                        snack.show()
-                        usernameField.text.clear()
-                        emailField.text.clear()
-                        passwordField.text.clear()
-                        usernameField.requestFocus()
-                        auth.signOut()
+                        // User has not requested to delete their account so log them in.
+                        val intent = Intent(this, HomePage::class.java)
+                        loggedinmsg = getString(R.string.welcome_msg)
+                        intent.putExtra("logged_in", loggedinmsg)
+                        startActivity(intent)
+                        finish()
                     }
                 } else {
-                    // User has not requested to delete their account so log them in.
-                    val intent = Intent(this, HomePage::class.java)
-                    loggedinmsg = getString(R.string.welcome_msg)
-                    intent.putExtra("logged_in", loggedinmsg)
-                    startActivity(intent)
-                    finish()
+                    // If the login was not successful, display an error message.
+                    hideKeyboard()
+                    val msgDisplay = Snackbar.make(
+                        loginBtn,
+                        getString(R.string.unsuccessful_login),
+                        Snackbar.LENGTH_SHORT
+                    )
+                    msgDisplay.show()
                 }
-            } else {
-                // If the login was not successful, display an error message.
-                hideKeyboard()
-                val msgDisplay = Snackbar.make(
-                    loginBtn,
-                    getString(R.string.unsuccessful_login),
-                    Snackbar.LENGTH_SHORT
-                )
-                msgDisplay.show()
             }
+        } else {
+            val msgDisplay = Snackbar.make(
+                loginBtn,
+                "Email and/or Password not entered.",
+                Snackbar.LENGTH_SHORT
+            )
+
+            msgDisplay.show()
         }
     }
 
